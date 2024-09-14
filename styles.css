@@ -59,7 +59,8 @@ h2 {
 }
 
 /* Estilo para los botones de envío y cancelar */
-.form-group input[type="submit"] {
+.form-group input[type="submit"],
+.form-group input[type="reset"] {
     width: 100%;
     padding: 12px;
     background-color: #3498db;
@@ -72,7 +73,8 @@ h2 {
 }
 
 /* Estilo al hacer hover en los botones */
-.form-group input[type="submit"]:hover {
+.form-group input[type="submit"]:hover,
+.form-group input[type="reset"]:hover {
     background-color: #2980b9;
     transform: scale(1.05);
 }
