@@ -4,8 +4,8 @@ body {
     flex-direction: column; /* Para que el contenido sea en columna: título arriba y formulario abajo */
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: 100%;
+    
     font-family: 'Roboto', sans-serif;
     background-color: #e9f0f7;
 }
