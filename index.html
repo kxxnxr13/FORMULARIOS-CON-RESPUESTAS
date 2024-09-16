@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h2>Formulario de Registro Completo</h2>
     
-    <form action="Respuesta.html" method="GET">
+    <!-- Contenedor del título -->
+    <div class="form-titulo">
+        <h2>Formulario de Registro Completo</h2>    
+    </div>
+    
+    <form action="Respuesta.html" method="GET" target="_blank" name="formulario_1">
 
         <!-- Contenedor del campo de Nombre -->
         <div class="form-group">
@@ -23,6 +26,44 @@
             <label for="apellido">Apellido Completo:</label>
             <input type="text" id="apellido" name="apellido" required>
         </div>
+
+        <!-- Contenedor del campo de Texto (textarea) -->
+        <div class="form-group">
+            <label for="comentarios">Comentarios:</label>
+            <textarea id="comentarios" name="comentarios" rows="4" required></textarea>
+        </div>
+
+        <!-- Contenedor de Selección (select y options) -->
+        <div class="form-group">
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero" required>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <!-- Contenedor para elegir Fecha -->
+        <div class="form-group">
+            <label for="fecha">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <!-- Contenedor para Subir Archivo -->
+        <div class="form-group">
+            <label for="archivo">Subir Archivo:</label>
+            <input type="file" id="archivo" name="archivo">
+        </div>
+
+        <!-- Fieldset y Legend -->
+        <fieldset class="form-group">
+            <legend>Progreso de Registro</legend>
+            <!-- Barra de Progreso -->
+            <progress value="70" max="100"></progress>
+            <!-- Medidor (meter) -->
+            <label for="satisfaccion">Nivel de Satisfacción:</label>
+            <meter id="satisfaccion" value="0.8" min="0" max="1" low="0.3" high="0.7" optimum="0.9">80%</meter>
+        </fieldset>
 
         <!-- Contenedor del botón de Envío -->
         <div class="form-group">
@@ -38,3 +79,4 @@
 
 </body>
 </html>
+
