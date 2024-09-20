@@ -1,153 +1,70 @@
-/* Centrado del formulario en el medio de la pantalla */
+/* Estilos generales */
 body {
-    display: flex;
-    flex-direction: column; /* Para que el contenido sea en columna: título arriba y formulario abajo */
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    
-    font-family: 'Roboto', sans-serif;
-    background-color: #e9f0f7;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Contenedor del formulario */
+/* Estilos del formulario */
 form {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 400px;
-    margin-top: 20px; /* Para crear un espacio entre el título y el formulario */
-    animation: slideDown 0.8s ease;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* Estilo del título, estático en la parte superior */
-.form-titulo {
-    position: static; /* Elimina el comportamiento de posición flotante */
-    text-align: center;
-    margin-top: 20px; /* Espaciado superior */
+/* Estilos para dispositivos con pantallas pequeñas (celulares) */
+@media (max-width: 768px) {
+    body {
+        background-color: #d1f7ff; /* Color para pantallas pequeñas */
+    }
+
+    form {
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 }
 
-/* Estilo del título del formulario */
-h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
+/* Estilos para dispositivos con pantallas grandes (portátiles) */
+@media (min-width: 769px) {
+    body {
+        background-color: #ffe1d1; /* Color para pantallas grandes */
+    }
+
+    form {
+        background-color: #ffffff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
 }
 
-/* Estilos generales para los grupos de campos */
+/* Estilos para contenedores de los campos del formulario */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Estilo de los labels */
-.form-group label {
-    font-size: 14px;
-    color: #34495e;
+label {
     display: block;
     margin-bottom: 5px;
 }
 
-/* Estilo de los inputs de texto, textarea, select, date, y file */
-.form-group input[type="text"],
-.form-group textarea,
-.form-group select,
-.form-group input[type="date"],
-.form-group input[type="file"] {
+input, textarea, select {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #dfe6e9;
-    border-radius: 8px;
-    font-size: 14px;
-    background-color: #f7f9fc;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-/* Estilo específico para textarea */
-.form-group textarea {
-    resize: none;
-}
-
-/* Cambios al enfocar los campos */
-.form-group input[type="text"]:focus,
-.form-group textarea:focus,
-.form-group select:focus,
-.form-group input[type="date"]:focus,
-.form-group input[type="file"]:focus {
-    border-color: #3498db;
-    background-color: #ecf6fd;
-    outline: none;
-}
-
-/* Estilo para los botones de envío y cancelar */
-.form-group input[type="submit"],
-.form-group input[type="reset"] {
+input[type="submit"], input[type="reset"] {
     width: 100%;
-    padding: 12px;
-    background-color: #3498db;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 4px;
 }
 
-/* Estilo al hacer hover en los botones */
-.form-group input[type="submit"]:hover,
-.form-group input[type="reset"]:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
-}
-
-/* Estilo para progress */
-fieldset {
-    border: 2px solid #dfe6e9;
-    border-radius: 8px;
-    padding: 15px;
-}
-
-legend {
-    font-size: 16px;
-    color: #34495e;
-    font-weight: bold;
-}
-
-progress {
-    width: 100%;
-    height: 20px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-/* Estilo para meter */
-meter {
-    width: 100%;
-    height: 20px;
-    border-radius: 8px;
-    margin-top: 5px;
-}
-
-/* Animación del formulario */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 600px) {
-    form {
-        padding: 20px;
-        max-width: 90%;
-    }
-
-    .form-titulo {
-        margin-top: 10px;
-    }
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #45a049;
 }
