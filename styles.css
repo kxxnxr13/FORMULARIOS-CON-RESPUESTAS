@@ -1,31 +1,39 @@
-/* Animación del título */
-.form-titulo h2 {
-    animation: titulo-animacion 2s ease-in-out infinite alternate;
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.form-titulo {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Animación del título con rotación y escala */
+.form-titulo h2 {
+    animation: titulo-animacion 3s ease-in-out infinite alternate;
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff;
 }
 
 @keyframes titulo-animacion {
-    from { color: #333; }
-    to { color: #007bff; }
+    0% {
+        transform: scale(1);
+        color: #007bff;
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+        color: #28a745;
+    }
+    100% {
+        transform: scale(1.2) rotate(-5deg);
+        color: #ff7f50;
+    }
 }
 
-/* Transiciones en botones */
-.form-group input[type="submit"],
-.form-group input[type="reset"] {
-    transition: background-color 0.3s ease;
-}
-
-.form-group input[type="submit"]:hover {
-    background-color: #28a745;
-    color: white;
-}
-
-.form-group input[type="reset"]:hover {
-    background-color: #dc3545;
-    color: white;
-}
-
-/* Estructura del formulario con Grid */
+/* Estructura del formulario con Grid para pantallas grandes */
 form {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -33,6 +41,9 @@ form {
     padding: 20px;
     max-width: 900px;
     margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -40,34 +51,138 @@ form {
     flex-direction: column;
 }
 
-/* Selector por atributo personalizado */
+/* Transiciones suaves en los campos de texto */
+input[type="text"],
+textarea,
+select,
+input[type="date"],
+input[type="file"] {
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus,
+input[type="file"]:focus {
+    border-color: #28a745;
+    box-shadow: 0px 0px 8px rgba(40, 167, 69, 0.6);
+}
+
+/* Transición y animación de los botones */
+input[type="submit"],
+input[type="reset"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #28a745;
+    transform: scale(1.1);
+}
+
+input[type="reset"]:hover {
+    background-color: #dc3545;
+    transform: scale(1.1);
+}
+
+/* Estilo especial para el input nombre (selector por atributo) */
 [name="nombre"] {
     border: 2px solid #007bff;
     padding: 10px;
+    border-radius: 5px;
 }
 
 [name="nombre"]:focus {
     border-color: #28a745;
+    box-shadow: 0px 0px 10px rgba(40, 167, 69, 0.6);
 }
 
-/* Estilos responsivos */
+/* Diseño para pantallas móviles */
 @media (max-width: 768px) {
     form {
         grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 15px;
     }
 
     .form-titulo h2 {
         font-size: 24px;
+        text-align: center;
+    }
+
+    /* Animación especial para móviles: el título rebota */
+    @keyframes titulo-animacion {
+        0% {
+            transform: scale(1);
+            color: #007bff;
+        }
+        50% {
+            transform: scale(1.05) translateY(-10px);
+            color: #28a745;
+        }
+        100% {
+            transform: scale(1.1) translateY(0);
+            color: #ff7f50;
+        }
+    }
+
+    /* Diferente animación para el botón en móvil */
+    input[type="submit"],
+    input[type="reset"] {
+        width: 100%;
+        padding: 15px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
     }
 }
 
-/* Estilos base */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    padding: 20px;
-}
+/* Diseño especial para pantallas grandes (portátiles) */
+@media (min-width: 769px) {
+    form {
+        grid-template-columns: 1fr 1fr;
+    }
 
-.form-titulo {
-    margin-bottom: 20px;
+    .form-group:nth-child(odd) {
+        animation: fadeInLeft 1s ease;
+    }
+
+    .form-group:nth-child(even) {
+        animation: fadeInRight 1s ease;
+    }
+
+    /* Efectos de entrada para pantallas grandes */
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 }
